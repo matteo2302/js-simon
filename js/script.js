@@ -13,11 +13,15 @@ while (numbers.length < 5) {
 console.table(numbers);
 countDown.innerText = 2;
 count = setInterval(function () {
-  if (countDown.innerText === 0) {
+  if (countDown.innerText === "0") {
     number.classList.add("d-none");
+    while (answers.length < 5) {
+      answer = prompt("scegli un numero da 1 a 99", "");
+      answers.push(answer);
+    }
     clearInterval(count);
   } else {
-    countDown.innerText = parseInt(countDown.innerText) - 1;
+    countDown.innerText = countDown.innerText - 1;
     console.log(countDown);
   }
 }, 1000);
