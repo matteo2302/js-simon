@@ -11,8 +11,13 @@ while (numbers.length < 5) {
   numbers.push(randoNumber);
 }
 console.table(numbers);
-countDown.innerText = 30;
-setInterval(function () {
-  countDown.innerText = countDown--;
-  console.log(countDown);
+countDown.innerText = 5;
+count = setInterval(function () {
+  if (countDown.innerText === "0") {
+    number.classList.add("d-none");
+    clearInterval(count);
+  } else {
+    countDown.innerText = countDown.innerText - 1;
+    console.log(countDown);
+  }
 }, 1000);
