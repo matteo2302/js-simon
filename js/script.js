@@ -15,17 +15,17 @@ let number = document.querySelector("li");
 countDown.innerText = 2;
 count = setInterval(function () {
   if (countDown.innerText === "0") {
-    listNumber.style.display = "none";
+    listNumber.classList.add("d-none");
     setTimeout(function () {
+      let rightAnswer = [];
       while (answers.length < 5) {
         answer = prompt("scegli un numero da 1 a 99", "");
         answers.push(answer);
         if (numbers.includes(parseInt(answer))) {
           rightAnswer.push(answer);
         }
-        let rightAnswer = [];
-        alert(`il numero di risposte giuste è ${rightAnswer.length}`);
       }
+      alert(`il numero di risposte giuste è ${rightAnswer.length}`);
     }, 200);
 
     clearInterval(count);
