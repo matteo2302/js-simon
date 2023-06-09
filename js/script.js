@@ -1,24 +1,30 @@
 console.log("jsok");
 //fase 0
 let countDown = document.querySelector("h1");
-let number = document.querySelector("li");
 let listNumber = document.querySelector("ul");
 let answers = [];
 let numbers = [];
+let rightAnswer = [];
 while (numbers.length < 5) {
   const randoNumber = Math.floor(Math.random() * 100) + 1;
   listNumber.innerHTML += `<li> ${randoNumber} </li>`;
   numbers.push(randoNumber);
 }
 console.table(numbers);
+let number = document.querySelector("li");
 countDown.innerText = 2;
 count = setInterval(function () {
   if (countDown.innerText === "0") {
-    number.classList.add("d-none");
+    listNumber.style.display = "none";
     while (answers.length < 5) {
       answer = prompt("scegli un numero da 1 a 99", "");
       answers.push(answer);
+      if (numbers.contain(answer)) {
+        rightAnswer.push(answer);
+      }
     }
+
+    alert(`il numero di risposte giuste è ${rightAnswer.length}`);
     clearInterval(count);
   } else {
     countDown.innerText = countDown.innerText - 1;
